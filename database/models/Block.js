@@ -7,10 +7,6 @@ const BlockSchema = new mongoose.Schema({
         required: true,
         default: generateId
     },
-    version: {
-        type: mongoose.SchemaTypes.String,
-        required: true
-    },
     shortDescription: {
         type: mongoose.SchemaTypes.String,
         required: false,
@@ -49,6 +45,11 @@ const BlockSchema = new mongoose.Schema({
         type: mongoose.SchemaTypes.Number,
         required: false,
         default: 0
+    }
+}, {
+    timestamps: {
+        updatedAt: "updatedAt",
+        createdAt: "createdAt"
     }
 });
 

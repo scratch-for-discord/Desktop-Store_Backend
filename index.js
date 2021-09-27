@@ -23,6 +23,7 @@ creator
     .registerCommandsIn(`${__dirname}/routes/slash-command`);
 
 app.use("/api/publishers", require("./routes/api/publisher"));
+app.use("/api/registry", require("./routes/api/registry"));
 
 app.all("*", (req, res) => {
     res.status(404).json({ error: "unknown route" });

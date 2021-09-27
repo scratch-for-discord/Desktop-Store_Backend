@@ -19,6 +19,11 @@ const AuthorModel = new mongoose.Schema({
         required: true,
         default: generateToken
     }
+}, {
+    timestamps: {
+        updatedAt: "updatedAt",
+        createdAt: "createdAt"
+    }
 });
 
 module.exports = mongoose.model("Author", AuthorModel);
