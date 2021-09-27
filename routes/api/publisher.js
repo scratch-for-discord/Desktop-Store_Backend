@@ -1,7 +1,8 @@
 const { Router } = require("express");
 const router = Router();
 const AuthorModel = require("../../database/models/Author");
-const { decodeId } = require("../../utils/generateId");
+const Snowflake = require("snowflake-util");
+const snowflake = new Snowflake();
 
 router.get("/", async (req, res) => {
     const data = await AuthorModel.find();
@@ -10,7 +11,7 @@ router.get("/", async (req, res) => {
             id: m.id,
             name: m.name,
             verified: m.verified,
-            created_at: decodeId(m.id).timestamp
+            created_at: snowflake.deconstruct(m.id).timestamp
         }))
     });
 });
@@ -25,7 +26,7 @@ router.get("/get", async (req, res) => {
         id: user.id,
         name: user.name,
         verified: user.verified,
-        created_at: decodeId(user.id).timestamp
+        created_at: snowflake.deconstruct(user.id).timestamp
     });
 });
 
@@ -37,7 +38,7 @@ router.get("/:id", async (req, res) => {
         id: user.id,
         name: user.name,
         verified: user.verified,
-        created_at: decodeId(user.id).timestamp
+        created_at: snowflake.deconstruct(user.id).timestamp
     });
 });
 
