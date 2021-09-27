@@ -7,7 +7,8 @@ const { ExpressServer, SlashCreator } = require("slash-create");
 const creator = new SlashCreator({
     applicationID: process.env.DISCORD_CLIENT_ID,
     token: process.env.DISCORD_TOKEN,
-    publicKey: process.env.DISCORD_PUBLIC_KEY
+    publicKey: process.env.DISCORD_PUBLIC_KEY,
+    endpointPath: "/commands"
 });
 
 app.use(express.json());
