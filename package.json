@@ -26,5 +26,9 @@
     "mongoose": "^6.0.7",
     "slash-create": "^4.2.0",
     "snowflake-util": "^1.0.1"
+  },
+  "engines": {
+    "node": "16.x",
+    "npm": "7.x"
   }
 }
