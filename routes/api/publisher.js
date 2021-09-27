@@ -57,6 +57,7 @@ router.get("/:id/blocks", async (req, res) => {
         updated_at: user.updatedAt || null,
         blocks: blocks.map(m => ({
             id: m.id,
+            name: m.name,
             short_description: m.shortDescription,
             description: m.longDescription,
             tags: m.tags,

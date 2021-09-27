@@ -7,6 +7,10 @@ const BlockSchema = new mongoose.Schema({
         required: true,
         default: generateId
     },
+    name: {
+        type: mongoose.SchemaTypes.String,
+        required: true
+    },
     shortDescription: {
         type: mongoose.SchemaTypes.String,
         required: false,

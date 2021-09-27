@@ -15,6 +15,7 @@ const uploader = async (req, res) => {
     if (!old) {
         const newBlock = new BlocksModel({
             id: block.metadata.id,
+            name: block.metadata.name,
             shortDescription: block.metadata.shortDescription,
             longDescription: block.metadata.longDescription,
             tags: Array.isArray(block.metadata.tags) ? block.metadata.tags : [],
@@ -31,6 +32,7 @@ const uploader = async (req, res) => {
             author: block.author.id
         }, {
             id: block.metadata.id,
+            name: block.metadata.name,
             shortDescription: block.metadata.shortDescription,
             longDescription: block.metadata.longDescription,
             tags: Array.isArray(block.metadata.tags) ? block.metadata.tags : [],
@@ -58,6 +60,7 @@ router.get("/all", async (req, res) => {
 
         const ret = {
             id: m.id,
+            name: m.name,
             short_description: m.shortDescription,
             description: m.longDescription,
             tags: m.tags,
@@ -99,6 +102,7 @@ router.get("/:id", async (req, res) => {
 
     res.status(200).json({
         id: data.id,
+        name: m.name,
         short_description: data.shortDescription,
         description: data.longDescription,
         tags: data.tags,
