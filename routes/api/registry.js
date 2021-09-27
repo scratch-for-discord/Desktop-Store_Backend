@@ -20,7 +20,8 @@ const uploader = async (req, res) => {
             tags: Array.isArray(block.metadata.tags) ? block.metadata.tags : [],
             author: block.author.id,
             icon: block.metadata.icon,
-            block: block.blocksData
+            block: block.blocksData.block,
+            toolbox: block.blocksData.toolbox
         });
 
         await newBlock.save();
@@ -35,7 +36,8 @@ const uploader = async (req, res) => {
             tags: Array.isArray(block.metadata.tags) ? block.metadata.tags : [],
             author: block.author.id,
             icon: block.metadata.icon,
-            block: block.blocksData
+            block: block.blocksData.block,
+            toolbox: block.blocksData.toolbox
         });
     }
 
@@ -110,7 +112,9 @@ router.get("/:id", async (req, res) => {
         icon: data.icon,
         downloads: data.downloads,
         updated_at: data.updatedAt,
-        created_at: data.createdAt
+        created_at: data.createdAt,
+        block: data.block,
+        toolbox: data.toolbox
     });
 
     if (isRequestedByApp) {

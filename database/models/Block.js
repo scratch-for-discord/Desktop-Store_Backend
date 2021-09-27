@@ -26,6 +26,10 @@ const BlockSchema = new mongoose.Schema({
         type: mongoose.SchemaTypes.String,
         required: true
     },
+    toolbox: {
+        type: mongoose.SchemaTypes.String,
+        required: true
+    },
     author: {
         type: mongoose.SchemaTypes.String,
         required: true
