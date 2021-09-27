@@ -1,10 +1,16 @@
 const BlocksModel = require("../../database/models/Block");
 const parseSafe = require("../../utils/parseSafe");
 
+function validateBlocks(data) {
+    if (!data.block || typeof data.block !== "string") return null;
+    if (!data.toolbox || typeof data.toolbox !== "string") return null;
+    return data;
+}
+
 module.exports = async (req, res, next) => {
     const blocksMeta = {
         metadata: parseSafe(req.body.metadata),
-        blocksData: req.body.scratchBlocks || null,
+        blocksData: validateBlocks(req.body.scratchBlocks) || null,
         author: req.publisher
     };
 
