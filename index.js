@@ -30,7 +30,7 @@ app.all("*", (req, res) => {
 
 app.use((error, _req, res, _next) => {
     console.error(error);
-    res.status(500).json({ error: "internal server error" });
+    res.status(500).json({ error: "internal server error", message: `${error.message || error}` });
 });
 
 app.listen(process.env.PORT || 3000, () => console.log(`HTTP server running on port *${process.env.PORT || 3000}`));
