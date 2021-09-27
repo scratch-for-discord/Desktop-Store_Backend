@@ -14,9 +14,7 @@ module.exports = async (req, res, next) => {
         author: req.publisher
     };
 
-    console.log(req.body.metadata)
     for (const prop of Object.values(blocksMeta)) {
-        console.log(prop);
         if (prop == null) return res.status(400).json({ error: "invalid request body" });
     }
 
