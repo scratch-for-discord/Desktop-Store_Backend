@@ -6,6 +6,10 @@ const AuthorModel = new mongoose.Schema({
         type: mongoose.SchemaTypes.String,
         required: true
     },
+    name: {
+        type: mongoose.SchemaTypes.String,
+        required: true
+    },
     verified: {
         type: mongoose.SchemaTypes.Boolean,
         default: false

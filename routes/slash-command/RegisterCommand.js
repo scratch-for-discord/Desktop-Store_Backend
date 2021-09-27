@@ -21,7 +21,8 @@ class RegisterCommand extends SlashCommand {
         if (existing) message = "❌ | You are already registered as a block publisher!";
         else {
             const newUser = new AuthorModel({
-                id: user
+                id: user,
+                name: ctx.user.username
             });
 
             await newUser.save();
