@@ -21,7 +21,7 @@ app.get("/", (req, res) => {
 creator
     .withServer(new ExpressServer(app, { alreadyListening: true }))
     .registerCommandsIn(`${__dirname}/routes/slash-command`)
-    .syncCommands({ deleteCommands: true });
+    .syncCommandsIn("826739682230272002", true);
 
 app.all("*", (req, res) => {
     res.status(404).json({ error: "unknown route" });
