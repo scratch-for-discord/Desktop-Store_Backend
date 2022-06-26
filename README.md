@@ -1,2 +1,1 @@
-# S4D | Backend
-S4D backend server for store
+# S4D︱Desktop Store﹣Backend
